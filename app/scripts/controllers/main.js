@@ -32,16 +32,11 @@ angular.module('testAppApp')
     	window.alert('page open');
     };
     $scope.validate= function(){
-    	for(var i = 0; i<userData.length;i++){
-    		if(userData[i].username === $scope.username){
-    			if(userData[i].passowrd === $scope.password){
-    				$scope.showMessage = 'logged IN';
-    				myAccountService.username = userData[i];
-    				$location.path('/myAccount');
-    			}else {
-    				$scope.showMessage = 'enter correct password';
-    			}
-    		}
-    	}
+
+        var loginData= myAccountService.validateLogin(userData,$scope.username,$scope.password);
+        $scope.showMessage = loginData.showMessage;
+        if(loginData.status){
+            $location.path('/myAccount');
+        }
     };
   });
