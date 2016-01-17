@@ -12,11 +12,11 @@ angular.module('testAppApp')
   	var self = this;
   	self.username ='';
 
-  	self.validateLogin = function(userData,username,password){
+  	self.validateLogin = function(userData,username,password, withoutPassword){
   		var loginData={};
   		for(var i = 0; i<userData.length;i++){
     		if(userData[i].username === username){
-    			if(userData[i].passowrd === password){
+    			if((userData[i].passowrd === password)||withoutPassword){
     				loginData.showMessage = 'logged IN';
     				loginData.status = true;
     				this.username = userData[i];

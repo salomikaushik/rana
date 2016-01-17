@@ -9,13 +9,15 @@
  */
 angular.module('testAppApp')
   .controller('MainCtrl', function ($scope, $location, myAccountService) {
+    var self = this;
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    $scope.password = '';
-    $scope.username = '';
+    self.withoutPassword =false;
+    self.password = 'rrrrr';
+    self.username = '';
     var userData = [
     	{
     		'username' : 'salomi',
@@ -28,13 +30,14 @@ angular.module('testAppApp')
     	}
     ];
 
-    $scope.popup=function(){
+    self.popup=function(){
     	window.alert('page open');
     };
-    $scope.validate= function(){
+    self.validate= function(){
 
-        var loginData= myAccountService.validateLogin(userData,$scope.username,$scope.password);
-        $scope.showMessage = loginData.showMessage;
+        var loginData= myAccountService.validateLogin(userData,self.username,self.password,
+            self.withoutPassword);
+        self.showMessage = loginData.showMessage;
         if(loginData.status){
             $location.path('/myAccount');
         }

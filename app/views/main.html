@@ -1,22 +1,27 @@
-
-    <div class="row">
+  <div class="row">
         <div class="col-sm-8 col-md-8 col-md-offset-2">
             <h1 class="text-center login-title">Sign in to continue to Bootsnipp</h1>
             <div class="account-wall">
                 <img class="profile-img" src="http://luisfarzati.github.io/angulartics/images/angularjs.png"
                     alt="">
-                <form class="form-signin">
-                <input type="text" class="form-control" placeholder="Email" required autofocus>
-                <input type="password" class="form-control" placeholder="Password" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign in</button>
+                <form name="login"  class="form-signin">
+                    <div class="col-sm-12 col-md-12 " style="height: 70px;">
+                        <input type="text" class="form-control col-sm-12 col-md-12 " name="userName" type="text" ng-model ="loginCtrl.username" required>
+                        <span class="col-sm-12 col-md-12 " ng-if="login.userName.$error.required">Enter Username </span>
+                    </div>
+                    <div class="col-sm-12 col-md-12 " style="height: 70px;" ng-if="!loginCtrl.withoutPassword">
+                        <input class="form-control col-sm-12 col-md-12 " name="password" type="password" ng-model ="loginCtrl.password" required>
+                        <span class="col-sm-12 col-md-12 " ng-if="login.password.$error.required">Enter password </span>
+                    </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit"  ng-disabled="login.$error.required" ng-click="loginCtrl.validate();" value="submit">sumbit
+                  </button>
                 <label class="checkbox pull-left">
-                    <input type="checkbox" value="remember-me">
-                    Remember me
+                    <input type="checkbox" value="remember-me" ng-model="loginCtrl.withoutPassword">
+                    Without Password
                 </label>
                 <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                 </form>
             </div>
             <a href="#" class="text-center new-account">Create an account </a>
         </div>
-    </div>
+    </div>A{{loginCtrl.username}}b{{loginCtrl.password}}c
