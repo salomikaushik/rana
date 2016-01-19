@@ -16,7 +16,7 @@ angular.module('testAppApp')
       'Karma'
     ];
     self.withoutPassword =false;
-    self.password = 'rrrrr';
+    self.password = '';
     self.username = '';
     var userData = [
     	{
