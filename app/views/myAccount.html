@@ -3,17 +3,11 @@
 <span ng-bind="userData.name"></span>
 
 </H4>
-<div ng-init="details = [
-  {name:'Salomi', number:1234},
-  {name:'pallav', number:5678},
-  {name:'babul', number:9012},
-  {name:'rana', number:345},
-  {name:'me d bestest:)', number:14},
-	]">
+<div >
 
 	<ul>
 		<li  ng-repeat = "x in details">
-	  		 {{x.name}}'s Number is {{x.number}}.
+			<span ng-bind="x.name"></span>'s Number is <span ng-bind="x.number">
 		</li>
 	</ul>
 </div>
