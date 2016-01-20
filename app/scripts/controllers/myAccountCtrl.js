@@ -8,8 +8,8 @@
  * Controller of the testAppApp
  */
 angular.module('testAppApp')
-  .controller('myAccountCtrl', function ($scope, myAccountService) {
+  .controller('myAccountCtrl', function ($scope, mainService) {
 
-    $scope.userData =  myAccountService.username;
+    $scope.userData =  mainService.username;
     $scope.showMessage = 'WELCOME';
   });

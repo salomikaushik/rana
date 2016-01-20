@@ -8,7 +8,7 @@
  * Controller of the testAppApp
  */
 angular.module('testAppApp')
-  .controller('MainCtrl', function ($scope, $location, myAccountService) {
+  .controller('MainCtrl', function ($scope, $location, mainService) {
     var self = this;
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -35,7 +35,7 @@ angular.module('testAppApp')
     };
     self.validate= function(){
 
-        var loginData= myAccountService.validateLogin(userData,self.username,self.password,
+        var loginData= mainService.validateLogin(userData,self.username,self.password,
             self.withoutPassword);
         self.showMessage = loginData.showMessage;
         if(loginData.status){

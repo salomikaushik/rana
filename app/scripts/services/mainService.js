@@ -8,7 +8,7 @@
  * Controller of the testAppApp
  */
 angular.module('testAppApp')
-  .service('myAccountService', function () {
+  .service('mainService', function () {
   	var self = this;
   	self.username ='';
 
