@@ -1,13 +1,29 @@
 <H4>
 <span ng-bind="showMessage"></span>
 <span ng-bind="userData.name"></span>
-
+Click on the table header
 </H4>
-<div >
-
-	<ul>
+<div class="row-fluid">
+	<div class="col-xs-12">
+	<input class="col-xs-4 col-xs-offset-7"type="text" ng-model="toSearch">
+	</div>
+<div>
+<div class="row-fluid" >
+	<table >
+		<tr >
+			<th ng-click="orderByMe('name')">Name</th>
+			<th ng-click="orderByMe('number')">Number</th>
+		</tr>
+		<tr ng-repeat="x in details | orderBy:myOrderBy |filter:toSearch">
+			<td ng-if="$even" style="background-color:#f1f1f1"><span ng-bind="x.name"></span>
+			<td ng-if="$odd" ><span ng-bind="x.name"></span>
+			<td ng-if="$even" style="background-color:#f1f1f1"><span ng-bind="x.number"></span>
+			<td ng-if="$odd"><span ng-bind="x.number"></span>
+		</tr>
+	</table>
+</div>
+	<!-- <ul>
 		<li  ng-repeat = "x in details">
 			<span ng-bind="x.name"></span>'s Number is <span ng-bind="x.number">
 		</li>
-	</ul>
-</div>
+	</ul> -->
