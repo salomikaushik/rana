@@ -8,8 +8,19 @@
  * Controller of the testAppApp
  */
 angular.module('testAppApp')
-  .controller('myAccountCtrl', function ($scope, myAccountService) {
+  .controller('myAccountCtrl', function ($scope, mainService) {
 
-    $scope.userData =  myAccountService.username;
+    $scope.userData =  mainService.username;
     $scope.showMessage = 'WELCOME';
+
+    $scope.details = [
+  {name:'Salomi', number:1234},
+  {name:'Pallav', number:5678},
+  {name:'Babul', number:9012},
+  {name:'Rana', number:345},
+  
+	];
+	$scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
   });
